@@ -1,0 +1,112 @@
+{
+	// https://momentjs.com/timezone/
+	"defaultTimezone":"Asia/Colombo",
+	// JWT secret key
+	"jwtSecKey": "cV/xxxxjEAH9p7gP2nICMAa9zZ6L+uJ3hP+fLIl6A==",
+	"api": {
+		"key": "xxxxxxx",
+		"secret": "xxxxxxx",
+		// Actions those not require user access token
+		// Do not put last /
+		// /v1/mock-user/list match with /v1/mock-user/:id as well to avoid it put /v1/mock-user/list and
+		// add list to ignore list of /v1/mock-user/:id
+		"guestActions": [
+			{"url": "/v1/user/authenticate", "method": "POST"},
+			{"url": "/v1/user", "method": "POST"},
+			{"url": "/v1/user/verify-email", "method": "POST"},
+			{"url": "/v1/user/forgot-password", "method": "POST"},
+			{"url": "/v1/user/verify-reset", "method": "POST"},
+			{"url": "/v1/user/reset-password", "method": "POST"},
+			{"url": "/v1/user/resend-verification-code", "method": "POST"},
+			{"url": "/v1/util/s3-get-file/*", "method": "GET"},
+			{"url": "/v1/shop/verify-invite/*", "method": "POST"},
+			// Mock user
+			{"url": "/v1/mock-user", "method": "POST"},
+			{"url": "/v1/mock-user/:id", "method": "PUT"},
+			{"url": "/v1/mock-user/list", "method": "GET"},
+			{"url": "/v1/mock-user/:id", "method": "DELETE"},
+			{"url": "/v1/mock-user/:id", "method": "GET", "ignore": ["list"]}
+		]
+	},
+	"tmpPath": "E:\\tmp\\",
+	"password": {
+		// Password reset token expiration time in ms // 1 hour
+		"tokenExpirationTime": 3600000
+	},
+	"email": {
+		"activateLink": "http://xxxxx",
+		"resetLink": "http://xxxxx",
+		"inviteLink":"http://xxxxxx",
+		"appStoreLink":"https://xxxxx",
+		"playStoreLink":"https://xxxxxx",
+		// Invitation Expiration time in hours // 2 Days
+		"inviteExpirationTime": 48,
+		// Default from email & Name
+		"fromEmail": "xxx@xxxx.com",
+		"fromName": "xxxxxx",
+		// Email content folder
+		"contentFolder": "mail/", 
+		// Main layout
+		"templatePath": "mail/template/layout.html",
+		// Email template logo URL
+		"logoLink": "xxxxxx",
+		// Email template content texts
+		"teamMsg": "The ShopFlow Manager Team",
+		"siteLink": "xxxxxxx",
+		"siteLinkText": "xxxxxxx",
+		"about": "xxxxxxxxxxx",
+		"telephone": "xxxxxxx",
+		"email": "xxxxxxxxxxx",
+		"copyright": "Copyright © {year} xxxxxx. All Rights Reserved."
+	},
+	"mailgun": {
+  		"apiEndPoint": "xxxxxxxx",
+        "apiUsername": "xxxx",
+        "apiPassword": "xxxxxx"
+	},
+	"shop": {
+		"defaultOpenTime": 800,
+		"defaultCloseTime": 1700,
+		"defaultBusinessDays": [2,3,4,5,6,7]
+	},
+	"aws": {
+		"bucketName": "xxxxx",
+		"signedUrlExpireSeconds": 3600,
+		"shop-default-logo": "xxxxoxxxhdpi.png",
+		"shop-default-banner": "xxxx-bannerxxxhdpi.png",
+		"cloudWatch": {
+			"logGroupName": "xxxxx-dev"
+		}
+	},
+	// Unit testing related configurations
+	"test": {
+		// Sample authorization code
+		"authorization": "Bearer xxxxx.eyJ1c2VySWQiOiI1YWQ1ODcxOTBkZTQxOTE5NDRlOWIyN2MiLCJzeXNFbWFpbCI6InN1cGVyQGdtYWlsLmNvbSIsImZpcnN0TmFtZSI6IlN1cGVyIiwiaWF0IjoxNTI0NDc5MzA2fQ.8U7AVox7P2nKg6U1Z0jlenb6RzwiaQ3cxvHWb37s6yE",
+		"authorizationSyncTool": "Bearer xxxxxx.eyJ1c2VySWQiOiI1YWQ1OGU4NjM2ZTI4YTI1MDBhYjZiZmMiLCJzeXNFbWFpbCI6IjFvOHc3YjRqZzM5azh3d0BzZi5jb20iLCJmaXJzdE5hbWUiOiJTeW5jVG9vbCIsImlhdCI6MTUyMzk0NTEzM30.NyP7IlLnvN_QidXAwjc2vII9RajIFtQ6LY2hx-ytZ5w",
+		"baseUrl": "http://localhost:8085/v1/"
+	},
+	"superadminRoleName": "Superadmin",
+	"carOwnerRoleName": "CarOwner",
+	"areaManagerRoleName": "AreaManager",
+	"shopOwnerRoleName": "ShopOwner",
+	"syncToolRoleName": "SyncTool",
+	// Pushnotification server configuration
+	"pushNotificationServer": {
+		"baseUrl": "http://localhost:8087/v1/",
+		"apiKey": "xxxxx",
+		"apiSecret": "xxxxxx",
+		"defaultTitle": "xxxx Manager",
+		"bookingRequestTitle": "Update on your appointment",
+		"chatNotificationTitle": "Chat message",
+		"imageOnlyMessage": "Image received"
+	},
+	"reviewServer": {
+		"requestPath": "/v1/google-review",
+		"baseUrl": "http://localhost:8088",
+		"apiKey": "xxxxx",
+		"apiSecret": "xxxxx",
+		"defaultTitle": "xxxx xxxx",
+		"defaultMessage": "Review <shopName> on Google"
+	},
+	"pushNotificationDispathCronSchedule": "*/10 * * * * *"
+}

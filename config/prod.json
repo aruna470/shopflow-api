@@ -1,0 +1,30 @@
+{
+	// Dev environment specific configurations. Others are taken from default.json
+	// https://momentjs.com/timezone/
+	"defaultTimezone":"America/Los_Angeles",
+	"email": {
+		"activateLink": "http://google.com?code=",
+		// Default from email & Name
+		"fromEmail": "xxxxx",
+		"fromName": "xxxxx",
+		"logoLink": "https://wxxxxxx"
+	},
+	// Unit testing related configurations
+	"test": {
+		// Sample authorization code
+		"authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1YTZlOGNiM2M4Y2IxYTJiZmNmZWVhMTEiLCJzeXNFbWFpbCI6ImFwaUBrZWVuZXllLnNvbHV0aW9ucyIsImZpcnN0TmFtZSI6IkFwaSIsImlhdCI6MTUxNzE5NDg5Nn0.9Wk_169iXk_LLK5k-Ouk4Z9XsHon_LQTBL1vL9epd6s",
+		"baseUrl": "http://localhost:8085/v1/"
+	},
+	"aws": {
+		"bucketName": "shop-flow-prod",
+		"signedUrlExpireSeconds": 3600,
+		"shop-default-logo": "default-logoxxxhdpi.png",
+		"shop-default-banner": "default-bannerxxxhdpi.png",
+		"cloudWatch": {
+			"logGroupName": "xxxxxx"
+		}
+	},
+	"pushNotificationServer": {
+		"baseUrl": "http://xxxxxxx/v1/"
+	}
+}

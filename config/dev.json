@@ -1,0 +1,25 @@
+{
+	// Dev environment specific configurations. Others are taken from default.json
+	// https://momentjs.com/timezone/
+	"defaultTimezone":"Asia/Colombo",
+	"logPath": "/var/log/xxxxxx/",
+	"email": {
+		"activateLink": "http://google.com?code=",
+		// Default from email & Name
+		"fromEmail": "xxxxxxxxxx",
+		"fromName": "xxxxxxxxx",
+		"logoLink": "xxxxxx"
+	},
+	"aws": {
+		"bucketName": "shop-flow-dev",
+		"signedUrlExpireSeconds": 3600,
+		"shop-default-logo": "default-logoxxxhdpi.png",
+		"shop-default-banner": "default-bannerxxxhdpi.png",
+		"cloudWatch": {
+			"logGroupName": "xxxxxxx"
+		}
+	},
+	"pushNotificationServer": {
+		"baseUrl": "http://xxxxxxxx/v1/"
+	}
+}

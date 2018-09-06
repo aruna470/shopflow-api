@@ -1,0 +1,8 @@
+{
+  "name": "Shop Flow API Document",
+  "version": "1.1.0",
+  "description": "This document describes the Shop Flow API functionalities.",
+  "template": {
+    "withCompare": false
+  }
+}

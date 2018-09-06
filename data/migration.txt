@@ -1,0 +1,34 @@
+db.createCollection('permission');
+db.permission.createIndex( { name: 1 } , { unique:true } );
+
+db.createCollection('user');
+db.user.createIndex( { sysEmail: 1 } , { sparse: true, unique:true } );
+db.user.createIndex( { email: 1 } , { sparse: true, unique:true } );
+
+db.createCollection('role');
+db.user.createIndex( { name: 1 } , { unique:true } );
+
+db.user.updateMany( {}, { $rename: { "roleName": "roleId" } } );
+db.user.update({}, {$set: {"isEmailVerified": NumberInt(0)}}, false, true);
+
+db.user.update({}, {$set: {"resetPasswordToken": null}}, false, true);
+db.user.update({}, {$set: {"resetPasswordExpires": null}}, false, true);
+db.user.update({}, {$set: {"verificationCode": NumberInt(0)}}, false, true);
+
+db.shop.update({}, {$set: {"shopOwner": null}}, false, true);
+db.shop.update({}, {$set: {"logoName": null}}, false, true);
+
+db.shop.update({}, {$set: {"bannerName": null}}, false, true);
+db.role.update({}, {$set: {"isDefault": NumberInt(0)}}, false, true);
+
+db.shop.update({}, {$set: {"carOwners": []}}, false, true);
+db.user.update({userType: 2}, {$set: {"shops": []}}, false, true);
+
+db.pushNotificationInfo.update({}, {$set: {"token": null}}, false, true);
+db.pushNotificationInfo.update({}, {$set: {"shopId": null}}, false, true);
+
+db.shop.update({}, {$set: {"googlePlaceId": null}}, false, true);
+
+db.pushNotificationRequest.update({}, {$set: {"title": "ShopFlow"}}, false, true);
+
+db.shop.update({}, {$set: {"description": null}}, false, true);
